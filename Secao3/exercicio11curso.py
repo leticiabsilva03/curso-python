@@ -12,14 +12,12 @@ print('\n\n----------------Jogo da Forca!----------------\n\n')
 palavra_secreta = 'ABACAXI'
 tentativas_totais = 0
 acerto_letra = 0
-erro_letra = 0
 i = 0
 palavra_acertada = ''
 
 # Verificando se usuário digitou apenas uma letra
 while True:
 
-    print(palavra_acertada)
     letra_digitada = input('Digite letra: ').upper()
     tentativas_totais += 1
 
@@ -32,25 +30,27 @@ while True:
         print('Digite uma letra válida, espaço não conta!')
     elif letra_digitada.isdigit():
         print('Digite uma letra, números não valem.')
+        continue
 
-    # Verificando se letra digitada está na palavra secreta na posição certa
+    # Verificando se letra digitada está na palavra secreta 
 
-    if letra_digitada in palavra_secreta[i]:
-        palavra_acertada += palavra_secreta [i]
-        i += 1
+    if letra_digitada in palavra_secreta:
+        palavra_acertada += letra_digitada
         acerto_letra +=1
 
-    else:
-        erro_letra +=1
-        print(palavra_acertada, '*')       
-    
-    print(palavra_acertada)
+    palavra_formada = ''
+    for letra in palavra_secreta:
+        if letra in palavra_acertada:
+            palavra_formada += letra
+        else:
+            palavra_formada += '*'   
 
-    if palavra_acertada == palavra_secreta:
+    print('Palavra formada: ', palavra_formada) 
+
+    if palavra_formada == palavra_secreta:
         print('Parabéns, você acertou a palavra secreta!')
         print('A palavra era', palavra_secreta)
         print('Tentativas com letras certas:', acerto_letra)
-        print('Tentativas com letras erradas:', erro_letra)
         print('Tentativas totais:', tentativas_totais)
         tentativas = 0
         i = 0
