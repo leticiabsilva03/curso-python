@@ -7,6 +7,9 @@ Faça um jogo para o usuário adivinhar qual a palavra secreta.
 
 Faça a contagem de tentativas do seu usuário.
 """
+
+import os
+
 print('\n\n----------------Jogo da Forca!----------------\n\n')
 
 palavra_secreta = 'ABACAXI'
@@ -48,13 +51,15 @@ while True:
     print('Palavra formada: ', palavra_formada) 
 
     if palavra_formada == palavra_secreta:
+        os.system('cls')
         print('Parabéns, você acertou a palavra secreta!')
         print('A palavra era', palavra_secreta)
         print('Tentativas com letras certas:', acerto_letra)
         print('Tentativas totais:', tentativas_totais)
         tentativas = 0
-        i = 0
+        acerto_letra = 0
         palavra_acertada = ''
+        palavra_formada = ''
 
     
 
