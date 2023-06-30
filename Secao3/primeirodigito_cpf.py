@@ -23,3 +23,33 @@ contrário disso:
     
 O primeiro dígito do CPF é 7
 """
+
+cpf_input = input('Digite um cpf válido: ').strip()
+cpf_numero = cpf_input.isdigit() # verifica se CPF foi digitando com . e - ou apenas números
+contador = 10
+
+#Verificando a string
+if cpf_numero:
+    cpf_int = cpf_input
+else:
+    cpf_ponto = cpf_input.split('.')
+    cpf_str = cpf_ponto[-1].split('-')
+    p, s, *_ = cpf_ponto
+    n, u = cpf_str
+    cpf_int = p + s + n + u
+
+#Verificando primeiro dígito
+cpf_nove_digitos = cpf_int[:9]
+mult = 0
+result_mult = 0
+for digitos in cpf_nove_digitos:
+    mult =+ int(digitos) * contador
+    result_mult += mult
+    contador -= 1
+
+digito = (result_mult * 10) % 11
+digito = digito if digito <= 9 else 0
+
+print (f'Dígito: {digito}')
+
+digito = print('Dígito válido, CPF validado!') if str(digito) == cpf_int [9] else print('Dígito incorreto, CPF inválido!')
