@@ -42,7 +42,7 @@ cpf_nove_digitos = cpf_int[:9]
 mult_9 = 0
 
 for digitos in cpf_nove_digitos:
-    mult_9 =+ int(digitos) * contador_9
+    mult_9 += int(digitos) * contador_9
     contador_9 -= 1
 
 digito_1 = (mult_9 * 10) % 11
@@ -60,7 +60,7 @@ else:
 
 mult_10 = 0
 
-for digitos in cpf_nove_digitos:
+for digitos in cpf_dez_digitos:
     mult_10 += int(digitos) * contador_9
     contador_9 -= 1
 
