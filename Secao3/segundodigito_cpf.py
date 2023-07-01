@@ -40,13 +40,12 @@ else:
 #Verificando primeiro dígito
 cpf_nove_digitos = cpf_int[:9]
 mult_9 = 0
-result_mult_9 = 0
+
 for digitos in cpf_nove_digitos:
     mult_9 =+ int(digitos) * contador_9
-    result_mult_9 += mult_9
     contador_9 -= 1
 
-digito_1 = (result_mult_9 * 10) % 11
+digito_1 = (mult_9 * 10) % 11
 digito_1 = digito_1 if digito_1 <= 9 else 0
 
 print (f'Dígito: {digito_1}')
@@ -60,13 +59,12 @@ else:
     cpf_dez_digitos = cpf_int[:9] + str(digito_1)
 
 mult_10 = 0
-result_mult_10 = 0
+
 for digitos in cpf_nove_digitos:
-    mult_10 =+ int(digitos) * contador_9
-    result_mult_10 += mult_10
+    mult_10 += int(digitos) * contador_9
     contador_9 -= 1
 
-digito_2 = (result_mult_10 * 10) % 11
+digito_2 = (mult_10 * 10) % 11
 digito_2 = digito_2 if digito_2 <= 9 else 0
 cpf = cpf_int
 
